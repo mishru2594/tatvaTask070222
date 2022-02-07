@@ -1,6 +1,14 @@
 {
   "posts": [
-    
+    {
+      "id": 1,
+      "firstName": "pradeep",
+      "lastName": "soni",
+      "email": "pradeep@gmail.com",
+      "password": "12345",
+      "dob": "05/10/1990",
+      "roll": "user"
+    }
   ],
   "comments": [
     {
