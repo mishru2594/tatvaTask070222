@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ApiService } from '../shared/api.service';
 import { User } from '../user.model';
 
@@ -18,7 +19,7 @@ export class SignUpComponent implements OnInit {
     dob: new FormControl('', Validators.required),
     roll: new FormControl('', Validators.required)
   })
-  constructor(private fb: FormBuilder, private api: ApiService) { }
+  constructor(private fb: FormBuilder, private api: ApiService,private router:Router) { }
 
   ngOnInit(): void {
 
@@ -34,7 +35,9 @@ export class SignUpComponent implements OnInit {
     this.api.signupPost(this.user).subscribe({
       next: (res) => {
         console.log(res)
+        this.formData.reset();
         alert("Data is successfully posted")
+        this.router.navigate(['login']);
       },
       error:(err)=>{
         alert("Data is not posted")

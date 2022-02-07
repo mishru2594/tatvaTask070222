@@ -8,6 +8,31 @@
       "password": "12345",
       "dob": "05/10/1990",
       "roll": "user"
+    },
+    {
+      "id": 2,
+      "firstName": "praveen",
+      "lastName": "mishra",
+      "email": "praveen.mishra.2594@gmail.com",
+      "password": "12345",
+      "dob": "02/05/1994",
+      "roll": "user"
+    }
+  ],
+  "blog": [
+    {
+      "id": 1,
+      "title": "IT",
+      "date": "07/02/2022",
+      "description": "going to talk about  IT",
+      "status": "success"
+    },
+    {
+      "id": 2,
+      "title": "agriculture",
+      "date": "07/03/2022",
+      "description": "Talking about agriculture",
+      "status": "success"
     }
   ],
   "comments": [
