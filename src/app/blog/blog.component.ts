@@ -9,44 +9,44 @@ import { data } from './blog.model';
   styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnInit {
-  data=new data();
-  blogData:any;
+  data = new data();
+  blogData: any;
   formData: FormGroup = new FormGroup({
     title: new FormControl('', Validators.required),
-    date:new FormControl('',Validators.required),
-    description:new FormControl('',Validators.required),
-    status:new FormControl('',Validators.required)
+    date: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required)
   })
-  constructor(private api:ApiService) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
-    this.getData()  
+    this.getData()
   }
-  postData(){
-    this.data.title=this.formData.value.title;
-    this.data.date=this.formData.value.date;
-    this.data.description=this.formData.value.description;
-    this.data.status=this.formData.value.status;
-    
-   this.api.postBlog(this.data).subscribe({
-     next:(res)=>{
-      alert("data is posted")
-      this.formData.reset();
-       this.getData();
-     }
-   })
-  }
+  postData() {
+    this.data.title = this.formData.value.title;
+    this.data.date = this.formData.value.date;
+    this.data.description = this.formData.value.description;
+    this.data.status = this.formData.value.status;
 
-  getData(){
-    this.api.getBlog().subscribe({
-      next:(res)=>{
-        this.blogData=res
+    this.api.postBlog(this.data).subscribe({
+      next: (res) => {
+        alert("data is posted")
+        this.formData.reset();
+        this.getData();
       }
     })
   }
-  deleteData(row:any){
+
+  getData() {
+    this.api.getBlog().subscribe({
+      next: (res) => {
+        this.blogData = res
+      }
+    })
+  }
+  deleteData(row: any) {
     this.api.delBlog(row).subscribe({
-      next:(res)=>{
+      next: (res) => {
         alert("data deleted success fully");
       }
     })

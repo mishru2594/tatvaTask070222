@@ -16,20 +16,20 @@ export class LoginComponent implements OnInit {
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
   });
-  constructor(private api: ApiService,private router:Router) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     console.warn(this.login())
   }
   login() {
     this.api.loginUser().subscribe({
-      next:(res)=>{
-        if(res.email === this.user.email && res.password === this.user.password){
+      next: (res) => {
+        if (res.email === this.user.email && res.password === this.user.password) {
           this.router.navigate(['blog'])
           return alert("user has logged")
         }
       }
     })
-    }
-  
+  }
+
 }
